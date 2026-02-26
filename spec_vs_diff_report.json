@@ -1,0 +1,90 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-26T19:05:01.541Z",
+  "summary": "The build request contains no requirements or acceptance criteria (it is an incomplete/clarification-needed request). The diff implements a full profile picture manager application with drag-and-drop upload, avatar preview, download, and removal features. Since there are no stated requirements, there are no missing requirements. All implemented features are hallucinated relative to the empty spec.",
+  "missing_requirements": [],
+  "hallucinated_features": [
+    {
+      "description": "Profile picture upload via file input and drag-and-drop with 10 MB size validation",
+      "reason": "No requirements were specified in the build request, yet a full upload feature was implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Circular avatar preview with live image display",
+      "reason": "No requirements were specified in the build request, yet an avatar preview UI was implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Download profile picture action",
+      "reason": "No requirements were specified in the build request, yet a download feature was implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Remove/delete profile picture action",
+      "reason": "No requirements were specified in the build request, yet a remove feature was implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Toast notifications for upload success, removal, and error states",
+      "reason": "No requirements were specified in the build request, yet toast notification feedback was implemented.",
+      "evidence": [
+        "frontend/src/App.tsx"
+      ]
+    },
+    {
+      "description": "Internet Identity authentication integration with AuthClient and hooks",
+      "reason": "No requirements were specified in the build request, yet full Internet Identity login/logout was implemented.",
+      "evidence": [
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/main.tsx"
+      ]
+    },
+    {
+      "description": "React Query-based actor management for ICP backend",
+      "reason": "No requirements were specified in the build request, yet actor/query infrastructure for an ICP backend was implemented.",
+      "evidence": [
+        "frontend/src/hooks/useActor.ts"
+      ]
+    },
+    {
+      "description": "Empty Motoko backend actor canister",
+      "reason": "No requirements were specified in the build request, yet a backend canister file was created.",
+      "evidence": [
+        "backend/main.mo"
+      ]
+    },
+    {
+      "description": "Custom OKLCH warm-neutral color palette with light and dark mode theming",
+      "reason": "No requirements were specified in the build request, yet a detailed custom theme was implemented.",
+      "evidence": [
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ]
+    }
+  ],
+  "confidence": 0.95,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

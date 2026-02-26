@@ -1,0 +1,14 @@
+{
+  "backend/main.mo": "Minimal Motoko backend actor with no methods or state defined.",
+  "feature_evidence.json": "Feature evidence report file with an empty features list, indicating no features have been tracked yet.",
+  "frontend-file-summaries.txt": "JSON-formatted summaries of three frontend files: App.tsx (profile picture manager), index.css (color palette and dark mode), and tailwind.config.js (Tailwind customizations).",
+  "frontend/index.css": "Tailwind CSS entry file defining OKLCH-based CSS custom properties for light and dark mode color tokens including sidebar, chart, and semantic UI colors.",
+  "frontend/index.html": "HTML entry point titled 'Clarification needed – incomplete request' that mounts the React app via a root div and loads main.tsx as a module.",
+  "frontend/src/App.tsx": "Profile picture manager React component supporting drag-and-drop upload, circular avatar preview, and change/download/remove actions using client-side object URLs and toast notifications.",
+  "frontend/src/hooks/useActor.ts": "React hook that creates and caches an ICP backend actor using React Query, supporting both anonymous and authenticated (Internet Identity) usage, and invalidates dependent queries when the actor changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "React context, provider, and hook for Internet Identity authentication via DFINITY's AuthClient, exposing login/logout state and identity with configurable options.",
+  "frontend/src/index.css": "Global stylesheet importing Inter font and defining a warm-neutral OKLCH color palette with full light and dark mode CSS custom property tokens for the UI.",
+  "frontend/src/main.tsx": "React app entry point that wraps the App component with QueryClientProvider and InternetIdentityProvider before rendering into the DOM.",
+  "frontend/tailwind.config.js": "Tailwind CSS configuration extending the theme with Inter font, OKLCH color tokens, custom border radii, accordion keyframe animations, and typography/container-queries/animate plugins.",
+  "project_state.json": "Project state metadata file indicating a new, unnamed project in clarification mode with no existing features, issues, or architectural notes recorded."
+}

@@ -1,0 +1,5 @@
+{
+  "frontend/src/App.tsx": "A polished profile picture manager app with drag-and-drop upload, live circular avatar preview, change/download/remove actions, and a tips section — all client-side using object URLs.",
+  "frontend/src/index.css": "Global styles with a refined warm-neutral OKLCH color palette (indigo-tinted primary), Inter font import, and full light/dark mode token definitions.",
+  "frontend/tailwind.config.js": "Tailwind config extended with Inter font family, OKLCH color tokens, custom border radius, and animation keyframes."
+}
