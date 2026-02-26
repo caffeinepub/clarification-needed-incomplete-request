@@ -1,39 +1,39 @@
 # Castle Imperior
 
 ## Current State
-New project -- no existing app. This is a fresh watch e-commerce website.
+
+The app is a luxury watch store with:
+- A public storefront (hero, watch carousel, order modal, chat widget)
+- An admin panel with Watches, Orders, and Messages tabs
+- Admin access is gated via Internet Identity login (`isCallerAdmin` backend call)
+- The "Admin Login" button in the navbar triggers Internet Identity login; after login, admins see an "Admin Panel" link
+- The admin panel includes an "Add New Timepiece" form with name, description, price, image upload, and a publish toggle
+- No dedicated "Owner Login" page or section exists -- access is purely via the navbar button
 
 ## Requested Changes (Diff)
 
 ### Add
-- Watch showcase section: cards/boxes displaying each watch with photo, name, price, and left/right arrows to cycle through watch designs (carousel per card or a global carousel)
-- Admin: ability to publish/upload watch photos with name and price
-- Order flow: customers can click a watch and place an order (name, contact info, selected watch)
-- Chat box: live-style chat widget where any visitor can send a text message or photo to the store owner; owner can view and reply
-- Black and gold theme throughout (deep black backgrounds, gold accents, borders, buttons, text highlights)
-- Site name: Castle Imperior with matching logo/branding
+- A clearly labeled "Owner Login" button or section in the navbar / a dedicated owner access area, so the owner knows exactly where to go to manage the store
+- After login, if user is admin, show a prominent "Go to Admin Panel" / "Manage Store" call-to-action that leads directly to the admin panel and the watch upload form
+- Improve discoverability: add a short instructional note in the admin panel header reminding the owner they can upload watch photos from the Watches tab
 
 ### Modify
-- Nothing (new project)
+- Rename the "Admin Login" button to "Owner Login" so it is clear this is the owner's entry point
+- After the owner logs in, automatically show the Admin Panel section (currently the owner must click a separate "Admin Panel" link after login)
+- Improve the "Add New Timepiece" form UX: add a helper text note near the image upload field clarifying accepted formats and suggesting good photo angles
 
 ### Remove
-- Nothing
+- Nothing to remove
 
 ## Implementation Plan
-1. Backend: Watch catalog (CRUD -- admin adds watches with images via blob-storage), Orders (customers submit orders linked to a watch), Chat messages (visitors send text + optional photo, admin views all messages)
-2. Frontend:
-   - Landing/hero section with Castle Imperior branding (black & gold)
-   - Watch carousel section: each watch displayed in a styled card with image, name, price; left/right arrows to navigate watches
-   - Order modal: clicking a watch opens an order form (name, phone/email, watch info)
-   - Admin panel (login-gated): upload watch photo, set name & price, publish/unpublish
-   - Chat widget (bottom-right floating): open/close, send text or attach photo, displays conversation thread
-   - Admin chat view: see all incoming messages with photos, reply
-3. Authorization for admin access
-4. Blob-storage for watch photos and chat photo attachments
+
+1. In `App.tsx` Navbar: rename "Admin Login" button label to "Owner Login" and "Logout" stays as is
+2. In `App.tsx`: when `isAdmin` becomes true after login, automatically set `showAdmin` to true (so the panel opens without a second click)
+3. In `App.tsx` Navbar: rename "Admin Panel" nav link label to "Manage Store"
+4. In `AdminPanel.tsx`: add a small helper note near the "Add New Timepiece" form image upload area with accepted formats info
+5. In `AdminPanel.tsx`: update the panel header subtitle from "Restricted Access" to "Owner Dashboard"
 
 ## UX Notes
-- Black (#0a0a0a) background, gold (#c9a84c / #d4af37) accents
-- Watch cards: dark card with gold border, watch image prominent, name/price in gold, arrow buttons on left and right
-- Chat widget: collapsible, dark themed, photo upload button inside input area
-- Mobile-friendly layout
-- Admin login via Internet Identity
+- The owner (non-technical) needs a clear, obvious login path
+- Auto-opening the admin panel after login removes friction
+- "Owner Login" is more natural language than "Admin Login" for a store owner

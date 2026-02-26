@@ -156,6 +156,7 @@ function AddWatchForm() {
           )}
         </button>
         <input ref={fileRef} type="file" accept="image/*" className="hidden" onChange={handleFileChange} />
+        <p className="text-xs text-muted-foreground mt-1">Accepted: JPG, PNG, WEBP. Use a well-lit photo for best results.</p>
       </div>
 
       {uploadProgress > 0 && uploadProgress < 100 && (
@@ -440,7 +441,7 @@ export default function AdminPanel() {
           </div>
           <h2 className="font-display text-4xl md:text-5xl text-foreground">Admin Panel</h2>
           <div className="ornament max-w-xs mx-auto">
-            <span className="text-xs text-gold-muted tracking-widest uppercase">Restricted Access</span>
+            <span className="text-xs text-gold-muted tracking-widest uppercase">Owner Dashboard</span>
           </div>
         </div>
 

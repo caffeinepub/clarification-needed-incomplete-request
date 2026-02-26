@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Crown, Heart, Loader2, Menu, X } from "lucide-react";
 import { Toaster } from "@/components/ui/sonner";
 import { useInternetIdentity } from "@/hooks/useInternetIdentity";
@@ -84,7 +84,7 @@ function Navbar({
               onClick={onAdminClick}
               className="text-sm text-gold hover:text-gold/80 transition-colors tracking-wide"
             >
-              Admin Panel
+              Manage Store
             </button>
           )}
         </nav>
@@ -109,7 +109,7 @@ function Navbar({
             ) : isAuthenticated ? (
               "Logout"
             ) : (
-              "Admin Login"
+              "Owner Login"
             )}
           </button>
         </div>
@@ -144,7 +144,7 @@ function Navbar({
               onClick={() => { setMenuOpen(false); onAdminClick(); }}
               className="block text-sm text-gold hover:text-gold/80 transition-colors py-1 w-full text-left"
             >
-              Admin Panel
+              Manage Store
             </button>
           )}
           <button
@@ -157,7 +157,7 @@ function Navbar({
                 : "gold-gradient text-background"
             } disabled:opacity-50`}
           >
-            {isLoggingIn ? "Logging in..." : isAuthenticated ? "Logout" : "Admin Login"}
+            {isLoggingIn ? "Logging in..." : isAuthenticated ? "Logout" : "Owner Login"}
           </button>
         </nav>
       )}
@@ -341,6 +341,12 @@ export default function App() {
   const [orderWatch, setOrderWatch] = useState<Watch | null>(null);
   const [showAdmin, setShowAdmin] = useState(false);
   const { data: isAdmin = false } = useIsAdmin();
+
+  useEffect(() => {
+    if (isAdmin) {
+      setShowAdmin(true);
+    }
+  }, [isAdmin]);
 
   return (
     <div className="min-h-screen bg-background flex flex-col">
