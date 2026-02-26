@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --radius: 0.5rem;
+
+    /* Castle Imperior — black & gold luxury theme */
+    --background:           0.08 0.005 60;
+    --foreground:           0.95 0.008 85;
+
+    --card:                 0.11 0.006 60;
+    --card-foreground:      0.95 0.008 85;
+
+    --popover:              0.13 0.007 60;
+    --popover-foreground:   0.95 0.008 85;
+
+    /* Gold primary */
+    --primary:              0.76 0.12  80;
+    --primary-foreground:   0.08 0.005 60;
+
+    --secondary:            0.16 0.008 60;
+    --secondary-foreground: 0.95 0.008 85;
+
+    --muted:                0.15 0.006 60;
+    --muted-foreground:     0.58 0.015 80;
+
+    --accent:               0.72 0.10  80;
+    --accent-foreground:    0.08 0.005 60;
+
+    --destructive:          0.58 0.22  25;
+    --destructive-foreground: 0.99 0   0;
+
+    --border:               0.76 0.12  80;
+    --input:                0.20 0.008 60;
+    --ring:                 0.76 0.12  80;
+
+    /* gold tokens */
+    --gold:                 0.76 0.12  80;
+    --gold-muted:           0.62 0.09  80;
+    --gold-dim:             0.40 0.06  80;
+
+    --chart-1: 0.646 0.222 41.116;
+    --chart-2: 0.6   0.118 184.704;
+    --chart-3: 0.398 0.07  227.392;
+    --chart-4: 0.828 0.189 84.429;
+    --chart-5: 0.769 0.188 70.08;
+
+    --sidebar:                  0.11 0.006 60;
+    --sidebar-foreground:       0.95 0.008 85;
+    --sidebar-primary:          0.76 0.12  80;
+    --sidebar-primary-foreground: 0.08 0.005 60;
+    --sidebar-accent:           0.16 0.008 60;
+    --sidebar-accent-foreground: 0.95 0.008 85;
+    --sidebar-border:           0.76 0.12  80;
+    --sidebar-ring:             0.76 0.12  80;
+  }
+
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Jost', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4 {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    letter-spacing: 0.02em;
+  }
+}
+
+@layer utilities {
+  .font-display {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+  }
+
+  .text-gold {
+    color: oklch(var(--gold));
+  }
+
+  .text-gold-muted {
+    color: oklch(var(--gold-muted));
+  }
+
+  .border-gold {
+    border-color: oklch(var(--gold));
+  }
+
+  .border-gold-dim {
+    border-color: oklch(var(--gold-dim));
+  }
+
+  .bg-gold {
+    background-color: oklch(var(--gold));
+  }
+
+  .bg-gold-dim {
+    background-color: oklch(var(--gold-dim));
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, oklch(0.80 0.13 85), oklch(0.65 0.10 75), oklch(0.78 0.12 90));
+  }
+
+  .card-luxury {
+    background: oklch(var(--card));
+    border: 1px solid oklch(var(--gold-dim));
+    box-shadow: 0 0 0 1px oklch(var(--gold-dim) / 0.2), 0 8px 32px oklch(0 0 0 / 0.5);
+  }
+
+  .card-luxury:hover {
+    border-color: oklch(var(--gold) / 0.6);
+    box-shadow: 0 0 0 1px oklch(var(--gold) / 0.3), 0 16px 48px oklch(0 0 0 / 0.6), 0 0 24px oklch(var(--gold) / 0.08);
+  }
+
+  .ornament {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .ornament::before,
+  .ornament::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, oklch(var(--gold) / 0.5), transparent);
+  }
+
+  .scrollbar-luxury::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-luxury::-webkit-scrollbar-track {
+    background: oklch(var(--muted));
+  }
+  .scrollbar-luxury::-webkit-scrollbar-thumb {
+    background: oklch(var(--gold-dim));
+    border-radius: 2px;
+  }
+}
+
+/* Animation keyframes */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes pulse-gold {
+  0%, 100% { box-shadow: 0 0 0 0 oklch(var(--gold) / 0.4); }
+  50%       { box-shadow: 0 0 0 8px oklch(var(--gold) / 0); }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+.animate-shimmer {
+  background: linear-gradient(90deg, oklch(var(--muted)), oklch(var(--card)), oklch(var(--muted)));
+  background-size: 200% 100%;
+  animation: shimmer 1.8s infinite;
+}
+
+.animate-pulse-gold {
+  animation: pulse-gold 2s ease-in-out infinite;
+}
